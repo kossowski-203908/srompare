@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Table,
-    TableBody,
-    TableHead,
-    TableCell,
-    TableRow,
-} from 'material-ui/Table';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 export default class Itemlist extends Component {
 
@@ -20,16 +14,6 @@ export default class Itemlist extends Component {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell>John Smith</TableCell>
-                        <TableCell>Employed</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell>John Smith</TableCell>
-                        <TableCell>Employed</TableCell>
-                    </TableRow>
                     <TableRow>
                         <TableCell>1</TableCell>
                         <TableCell>John Smith</TableCell>
