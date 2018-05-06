@@ -1,0 +1,14 @@
+.itemsList {
+    list-style-type: none;
+}
+
+.item {
+    border: 1px solid #aaa;
+    padding: 10px 20px;
+    margin: 20px 0;
+
+}
+
+.desc {
+    font-size: 10px;
+}
