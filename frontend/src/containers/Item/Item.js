@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import { Fa } from 'mdbreact';
 import StarsVote from '../../components/utils/starsVote/StarsVote';
+import { connect } from 'react-redux';
 
-export default class Item extends Component {
+import { changeVote } from '../../actions/itemActions';
 
-    state = {
-        ...this.props.item
-    };
+class Item extends Component {
 
     getRate = (rate) => {
-        if(!this.state.userRate) {
-            this.setState({ gradesAmount: this.state.gradesAmount + 1 });
+        let { item, changeVote } = this.props;
+        if(!item.userRate) {
+            item.gradesAmount++;
+            item.grade = (item.grade * (item.gradesAmount-1) + rate) / item.gradesAmount;
+        } else {
+            item.grade = (item.grade * item.gradesAmount - item.userRate + rate) / item.gradesAmount;
         }
-        this.setState({ userRate: rate });
+        item.grade = item.grade.toFixed(2);
+        item.userRate = rate;
+        changeVote({ ...item });
     };
 
     render() {
-        let item = this.state;
+        let { item } = this.props;
+
         return (
             <li className="item row z-depth-1 blue-grey lighten-5">
                 <div className="name col-md-8">{item.name}</div>
@@ -25,7 +31,7 @@ export default class Item extends Component {
                         <StarsVote scale="5"
                                    userRate={item.userRate}
                                    onStarClick={this.getRate}/>
-                        <span className="font-weight-bold ml-3">{item.grade}</span>
+                        <span className="font-weight-bold ml-2">{item.grade}</span>
                     </div>
                     <div className="desc d-flex align-items-center">
                         <Fa icon="eye" size="2x"/>
@@ -38,3 +44,9 @@ export default class Item extends Component {
         );
     }
 }
+
+const actions = {
+    changeVote,
+};
+
+export default connect(null, actions)(Item);

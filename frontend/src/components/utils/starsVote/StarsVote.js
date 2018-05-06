@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Fa } from 'mdbreact';
+import './StarsVote.css';
 
 export default class StarsVote extends Component {
 
