@@ -9,6 +9,7 @@ class Itemslist extends Component {
         let {items} = this.props;
         return (
             <div className="row">
+                <h1 className="col-md-12 mt-4">Items list:</h1>
                 <ul className="itemsList col-md-8">
                     {items.map( e => {
                         return(<Item item={e} key={e.id} />);
