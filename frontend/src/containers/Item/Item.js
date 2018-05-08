@@ -17,10 +17,11 @@ class Item extends Component {
         }
         item.grade = item.grade.toFixed(2);
         item.userRate = rate;
-        changeVote({ ...item });
+        changeVote({...item});
     };
 
     render() {
+        console.log(this.props.item.name);
         let { item } = this.props;
 
         return (

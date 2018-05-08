@@ -6,6 +6,7 @@ import Item from "../Item/Item";
 class Itemslist extends Component {
 
     render() {
+        console.log("cokolwiek");
         let {items} = this.props;
         return (
             <div className="row">

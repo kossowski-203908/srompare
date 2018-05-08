@@ -8,17 +8,25 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/mdbreact/dist/css/mdb.css';
 import { Container } from 'mdbreact';
 import Header from "./components/header/Header";
+import AddItem from "./containers/AddItem/AddItem";
+import {
+    BrowserRouter as Router,
+    Route,
+} from 'react-router-dom';
 
 class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <div>
-                    <Header/>
-                    <Container>
-                        <ItemsList/>
-                    </Container>
-                </div>
+                <Router>
+                    <div>
+                        <Header/>
+                        <Container>
+                            <Route exact path="/" component={ItemsList}/>
+                            <Route path="/add" component={AddItem}/>
+                        </Container>
+                    </div>
+                </Router>
             </Provider>
         );
     }
