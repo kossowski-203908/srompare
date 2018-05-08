@@ -5,6 +5,11 @@ import { Input, Fa, Button } from 'mdbreact';
 
 class AddItem extends Component {
 
+    constructor(props) {
+        super(props);
+        this.onButtonClicked = this.onButtonClicked.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+    }
     state = {
         id: this.props.last + 1,
         name: '',
@@ -18,10 +23,17 @@ class AddItem extends Component {
             <div>
                 <form>
                     <p className="h5 text-center mb-4">Add new item</p>
-                    <Input label="itemName" id="name" value={this.state.name} onChange={e => this.onInputChange(e)} icon="tag" group type="email" validate error="wrong" success="right"/>
-                    <Input type="textarea" label="itemDescription" id="description" value={this.state.description} onChange={e => this.onInputChange(e)} icon="pencil"/>
+                    <Input label="itemName" id="name"
+                           value={this.state.name}
+                           onChange={this.onInputChange} icon="tag"/>
+                    <Input type="textarea" label="itemDescription" id="description"
+                           value={this.state.description}
+                           onChange={this.onInputChange} icon="pencil"/>
                     <div className="text-center">
-                        <Button color="deep-orange" color="unique" onClick={ e => this.onButtonClicked(e)}>Send <Fa icon="paper-plane-o" className="ml-1"/></Button>
+                        <Button color="deep-orange" color="unique"
+                                onClick={this.onButtonClicked}>
+                            Send <Fa icon="paper-plane-o" className="ml-1"/>
+                        </Button>
                     </div>
                 </form>
             </div>

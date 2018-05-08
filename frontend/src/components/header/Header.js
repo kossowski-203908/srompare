@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
 
@@ -34,13 +35,10 @@ export default class Header extends Component {
                                 <Collapse isOpen = { this.state.collapse } navbar>
                                     <NavbarNav left>
                                         <NavItem active>
-                                            <NavLink to="#">Home</NavLink>
+                                            <Link to="/">Home</Link>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink to="#">Link</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink to="#">Profile</NavLink>
+                                            <Link to="/add">Add Item</Link>
                                         </NavItem>
                                     </NavbarNav>
                                 </Collapse>
@@ -48,7 +46,6 @@ export default class Header extends Component {
                         </Navbar>
                     </Router>
                 </header>
-
             </div>
         );
     }

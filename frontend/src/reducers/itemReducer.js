@@ -11,12 +11,7 @@ export function itemReducer( state = initialState, action) {
         case CHANGE_VOTE:
             return state.map(item => item.id === action.item.id ? action.item : item );
         case ADD_ITEM:
-        {
-            console.log(action.newItem);
             return state.concat(action.newItem);
-
-
-        }
         default:
             return state;
     }
