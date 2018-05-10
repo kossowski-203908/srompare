@@ -25,26 +25,24 @@ export default class Header extends Component {
         return (
             <div>
                 <header>
-                    <Router>
-                        <Navbar color="black" dark expand="md" scrolling>
-                            <Container>
-                                <NavbarBrand href="/">
-                                    <strong>Navbar</strong>
-                                </NavbarBrand>
-                                { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
-                                <Collapse isOpen = { this.state.collapse } navbar>
-                                    <NavbarNav left>
-                                        <NavItem active>
-                                            <Link to="/">Home</Link>
-                                        </NavItem>
-                                        <NavItem>
-                                            <Link to="/add">Add Item</Link>
-                                        </NavItem>
-                                    </NavbarNav>
-                                </Collapse>
-                            </Container>
-                        </Navbar>
-                    </Router>
+                    <Navbar color="black" dark expand="md" scrolling>
+                        <Container>
+                            <NavbarBrand href="/">
+                                <strong>Navbar</strong>
+                            </NavbarBrand>
+                            { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
+                            <Collapse isOpen = { this.state.collapse } navbar>
+                                <NavbarNav left>
+                                    <NavItem active>
+                                        <NavLink to="/">Home</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink to="/add">Add Item</NavLink>
+                                    </NavItem>
+                                </NavbarNav>
+                            </Collapse>
+                        </Container>
+                    </Navbar>
                 </header>
             </div>
         );
